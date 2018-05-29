@@ -4,7 +4,7 @@ import { mutations } from './mutations'
 import { actions } from './actions'
 
 Vue.use(Vuex)
-
+// State
 // Root State
 export const state = {
   balance: 100.0,
