@@ -1,4 +1,4 @@
-# Endpass Dice
+# Endpass Role Dice
 
 > A.Bangert test task for Endpass
 
@@ -11,10 +11,12 @@ npm install
 # serve with hot reload at localhost:8080
 npm run dev
 
-# build for production with minification
+# build for production with minification. DOES NOT WORK!!!
+# The project needs to be configured correctly for using WebPack^4
 npm run build
 
-# build for production and view the bundle analyzer report
+# build for production and view the bundle analyzer report. DOES NOT WORK!!!
+# The project needs to be configured correctly for using WebPack^4
 npm run build --report
 
 # run unit tests
