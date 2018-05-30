@@ -17,7 +17,16 @@
           <div class="form-group">
             <label for="txtBetAmout">Bet amount</label>
             <div class="input-group">
-              <input id="txtBetAmount" type="text" class="form-control" placeholder="Bet amount" aria-label="Bet amount" aria-describedby="basic-addon2" v-model="betAmount">
+              <input id="txtBetAmount" type="text" class="form-control" :class="{ 'is-invalid': (!$v.betAmount.between||!$v.betAmount.required||!$v.betAmount.numeric)}" placeholder="Bet amount" aria-label="Bet amount" aria-describedby="basic-addon2" v-model.trim="$v.betAmount.$model">
+              <div class="invalid-tooltip" :style="{ display: (!$v.betAmount.between ? 'block' : 'none')}">
+                Please input bet amount between 1 and Balance
+              </div>
+              <div class="invalid-tooltip" :style="{ display: (!$v.betAmount.required ? 'block' : 'none')}">
+                Please input bet amount
+              </div>
+              <div class="invalid-tooltip" :style="{ display: (!$v.betAmount.numeric ? 'block' : 'none')}">
+                Input value must be a Number
+              </div>
               <div class="input-group-append">
                 <button class="btn btn-outline-secondary" type="button" @click="divideHalf()">1/2</button>
                 <button class="btn btn-outline-secondary" type="button" @click="multiply()">x2</button>
@@ -82,6 +91,7 @@
 import { mapState, mapActions } from 'vuex'
 import { componentName } from './winChanceInput'
 import { NumberUtil } from '../utils/numberUtils'
+import { required, numeric, between } from 'vuelidate/lib/validators'
 import Balance from './Balance.vue'
 
 const maxPercent = 99.99
@@ -100,7 +110,8 @@ export default {
     initialWinChanceMultipl: {
       type: Number,
       default: 2.0
-    }
+    },
+    initialBalance: 100
   },
   data: function () {
     return {
@@ -114,12 +125,33 @@ export default {
       wcmName: componentName.winChanceAppliedName
     }
   },
+  validations: {
+    betAmount: {
+      required,
+      // Needs to be mount balance (1.0, balance)
+      between: between(1.0, 100.0),
+      numeric
+    },
+    winChancePercent: {
+      required,
+      between: between(0.1, maxPercent),
+      numeric
+    },
+    winChanceMultipl: {
+      required,
+      between: between(1.01, 990),
+      numeric
+    }
+  },
   computed: {
     ...mapState({
       rolledPercent: 'rolledPercent',
       rollCount: state => state.stats.count,
       lastResult: state => state.stats.lastResult
     }),
+    balance: function () {
+      return 100
+    },
     profit: function () {
       let num = NumberUtil.multiply(this.betAmount, this.winChanceMultipl)
       return NumberUtil.round(num, 8)

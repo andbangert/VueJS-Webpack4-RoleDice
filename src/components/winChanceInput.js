@@ -11,9 +11,11 @@ export const componentName = {
 }
 
 export default function () {
+  // TODO: Make custom event for component instead of $emit('update:value', $event.target.value) and subscribe to it for validation purposes
   Vue.component(winChanceChangeName, {
     template: `
-    <input type="text" class="form-control" placeholder="Win chance" aria-label="Win chance" aria-describedby="basic-addon2" :value="value" @input="$emit('update:value', $event.target.value)">
+    <input type="text" class="form-control" placeholder="Win chance" aria-label="Win chance" aria-describedby="basic-addon2" :value="value" 
+    @input="$emit('update:value', $event.target.value)">
   `,
     props: ['initialValue', 'symbol'],
     data () {

@@ -4,13 +4,15 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import store from './store/index'
 import App from './App'
-// import VueCookie from 'vue-cookie'
 import router from './router'
 import './scss/_custom.scss'
 import { LocalStore } from './utils/localStoreUtil'
+import vuelidate from 'vuelidate'
+// import VueCookie from 'vue-cookie'
 
 Vue.config.productionTip = false
 Vue.use(Vuex)
+Vue.use(vuelidate)
 // Old
 // Used cookie insted of local storage
 //
