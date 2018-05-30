@@ -54,7 +54,7 @@ export const actions = {
     // Check if client seed was set manually
     if (state.hashInfo.clientSeed || state.hashInfo.clientSeed === '') {
       let unhashedClient = HashUtil.generateUnhashed()
-      hashInfo.clientSeed = HashUtil.hashUnhashed(unhashedClient)
+      hashInfo.clientSeed = unhashedClient
     } else {
       hashInfo.clientSeed = state.hashInfo.clientSeed
     }

@@ -22,7 +22,8 @@ class HashUtil {
   // Algorithms are the same for both client seed and server secret hash.
   static generateUnhashed () {
     let revNum = parseFloat(Date.now() + Math.random(), 16)
-    return CryptoJS.SHA256(revNum.toString()).toString()
+    let unhashed = CryptoJS.SHA256(revNum.toString()).toString()
+    return unhashed.substring(0, 16)
   }
   static hashUnhashed (unhashed) {
     return CryptoJS.SHA256(unhashed).toString()

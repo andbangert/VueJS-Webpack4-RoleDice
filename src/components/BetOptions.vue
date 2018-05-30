@@ -114,7 +114,7 @@ export default {
     }),
     profit: function () {
       let num = NumberUtil.multiply(this.betAmount, this.winChanceMultipl)
-      return num
+      return NumberUtil.round(num, 8)
     },
     lowPercent: function () {
       return NumberUtil.round(this.winChancePercent, 2)

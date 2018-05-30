@@ -4,27 +4,35 @@
       Stats
     </div>
     <div class="card-body">
-      <div>
-        <span>Wins:&nbsp;
-          <span class="font-weight-bold text-success">{{success}}</span>
-        </span>
+      <div class="stats-item">
+        <div>
+          <span>Wins:&nbsp;
+            <span class="font-weight-bold text-success">{{success}}</span>
+          </span>
+        </div>
       </div>
-      <div>
-        <span>Losses:&nbsp;
-          <span class="font-weight-bold text-danger">{{fail}}</span>
-        </span>
+      <div class="stats-item">
+        <div>
+          <span>Losses:&nbsp;
+            <span class="font-weight-bold text-danger">{{fail}}</span>
+          </span>
+        </div>
       </div>
-      <div>
-        <span>Bets:&nbsp;
-          <span class="font-weight-bold text-dark">{{count}}</span>
-        </span>
+      <div class="stats-item">
+        <div>
+          <span>Bets:&nbsp;
+            <span class="font-weight-bold text-dark">{{count}}</span>
+          </span>
+        </div>
       </div>
-      <div>
-        <span>Profit:&nbsp;
-          <span class="font-weight-bold text-dark">{{successProfit}}</span>
-        </span>
+      <div class="stats-item">
+        <div>
+          <span>Profit:&nbsp;
+            <span class="font-weight-bold text-dark">{{successProfit}}</span>
+          </span>
+        </div>
       </div>
-      <a href="#" class="btn btn-primary" @click="resetStats">Reset</a>
+      <a href="#" class="btn btn-dark" @click="resetStats">Reset</a>
     </div>
   </div>
 </template>
@@ -38,7 +46,7 @@ export default {
       success: (state) => state.stats.success,
       fail: (state) => state.stats.fail,
       count: (state) => state.stats.count,
-      successProfit: (state) => state.stats.successProfit,
+      successProfit: (state) => state.stats.successProfit
     })
   },
   methods: {
@@ -46,3 +54,8 @@ export default {
   }
 }
 </script>
+<style scoped>
+.stats-item {
+  padding: 0.7rem 0;
+}
+</style>

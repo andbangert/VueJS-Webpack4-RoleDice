@@ -8,29 +8,35 @@ Vue.use(Vuex)
 Vue.use(VueCookie)
 
 let stateStr = Vue.cookie.get('endpass_test_state')
-console.log(stateStr)
-export const state = // stateStr ? JSON.parse(stateStr) : 
-{
-  balance: 100.0,
-  rolledPercent: 0.0,
-  hashInfo: {
-    secretRevealedHash: '',
-    secretServerHash: '',
-    clientSeed: '',
-    prevSecretRevealedHash: '',
-    prevSecretServerHash: '',
-    prevClientSeed: '',
-    nonce: 0
-  },
-  stats: {
-    success: 0,
-    fail: 0,
-    count: 0,
-    successProfit: 0,
-    profit: 0,
-    lastResult: false
+let obj = {}
+if (stateStr) {
+  obj = JSON.parse(stateStr)
+} else {
+  obj = {
+    balance: 100.0,
+    rolledPercent: 0.0,
+    hashInfo: {
+      secretRevealedHash: '',
+      secretServerHash: '',
+      clientSeed: '',
+      prevSecretRevealedHash: '',
+      prevSecretServerHash: '',
+      prevClientSeed: '',
+      nonce: 0
+    },
+    stats: {
+      success: 0,
+      fail: 0,
+      count: 0,
+      successProfit: 0,
+      profit: 0,
+      lastResult: false
+    }
   }
 }
+
+export const state = obj
+state.balance = 100
 
 export default new Vuex.Store({
   state,

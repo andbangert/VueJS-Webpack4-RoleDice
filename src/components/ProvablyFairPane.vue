@@ -9,13 +9,13 @@
           <div class="form-group">
             <label>SECRET HASH</label>
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="" aria-label="" :value="secretRevealedHash">
+              <input type="text" class="form-control" placeholder="" aria-label="" :value="secretServerHash" readonly>
             </div>
           </div>
           <div class="form-group">
             <label>CLIENT SEED</label>
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="" aria-label="" :value="clientSeed">
+              <input type="text" class="form-control" placeholder="" aria-label="" :value="clientSeed" readonly>
               <div class="input-group-append">
                 <button class="btn btn-outline-secondary" type="button">Random</button>
                 <button class="btn btn-outline-secondary" type="button">Lock</button>
@@ -27,19 +27,19 @@
           <div class="form-group">
             <label>PREVIOUS REVEALED SECRET</label>
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="" aria-label="" :value="prevSecretRevealedHash">
+              <input type="text" class="form-control" placeholder="" aria-label="" :value="prevSecretRevealedHash" readonly>
             </div>
           </div>
           <div class="form-group">
             <label>PREVIOUS REVEALED SECRET HASH</label>
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="" aria-label="" :value="prevSecretServerHash">
+              <input type="text" class="form-control" placeholder="" aria-label="" :value="prevSecretServerHash" readonly>
             </div>
           </div>
           <div class="form-group">
             <label>PREVIOUS CLIENT SEED</label>
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="" aria-label="" :value="prevClientSeed">
+              <input type="text" class="form-control" placeholder="" aria-label="" :value="prevClientSeed" readonly>
             </div>
           </div>
         </div>
