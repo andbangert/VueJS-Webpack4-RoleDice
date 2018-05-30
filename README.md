@@ -1,4 +1,4 @@
-# Endpass Role Dice
+# Endpass Roll Dice
 
 > A.Bangert test task for Endpass
 
