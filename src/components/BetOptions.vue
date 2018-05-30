@@ -117,11 +117,11 @@ export default {
       return num
     },
     lowPercent: function () {
-      return this.winChancePercent
+      return NumberUtil.round(this.winChancePercent, 2)
     },
     highPercent: function () {
       let num = NumberUtil.multiply(this.winChancePercent, -1)
-      return NumberUtil.add(maxPercent, num)
+      return NumberUtil.round(NumberUtil.add(maxPercent, num), 2)
     },
     rollClassObject: function () {
       if (this.rollCount === 0) {

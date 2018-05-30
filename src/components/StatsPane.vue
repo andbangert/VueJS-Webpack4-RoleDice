@@ -39,7 +39,6 @@ export default {
       fail: (state) => state.stats.fail,
       count: (state) => state.stats.count,
       successProfit: (state) => state.stats.successProfit,
-      profit: (state) => state.stats.profit
     })
   },
   methods: {

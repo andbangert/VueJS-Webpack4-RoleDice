@@ -54,6 +54,13 @@ class NumberUtil {
   static decimalCeil (value, exp) {
     return this.decimalAdjust('ceil', value, exp)
   }
+  static round (value, exp) {
+    let div = 10 ** exp
+    let big = value * div
+    let rounded = 0
+    rounded = Number((Math.round(big) / div).toFixed(exp))
+    return rounded
+  }
 }
 
 export { NumberUtil }

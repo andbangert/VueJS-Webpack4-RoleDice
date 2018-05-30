@@ -1,4 +1,5 @@
 'use strict'
+import { NumberUtil } from '../utils/numberUtils'
 
 export const FAUCET_BALANCE = 'faucetBalance'
 export const CHANGE_BALANCE = 'changeBalance'
@@ -11,9 +12,15 @@ export const mutations = {
   [FAUCET_BALANCE] (state) {
     state.balance = 100
   },
-  [CHANGE_BALANCE] (state, num) {
+  [CHANGE_BALANCE] (state, stats) {
     if (state.balance > 0) {
-      state.balance += num
+      let d = 0.0
+      if (stats.result) {
+        d = state.balance + stats.profit
+      } else {
+        d = state.balance - stats.profit
+      }
+      state.balance = NumberUtil.round(d, 8)
     }
   },
   [SET_ROLLED_PERCENT] (state, num) {
@@ -30,13 +37,17 @@ export const mutations = {
   },
   [SET_STATS_INFO] (state, stats) {
     state.stats.lastResult = stats.success
+    let d = state.stats.successProfit
     if (stats.success) {
       state.stats.success++
+      d += stats.profit
+      state.stats.successProfit = NumberUtil.round(d, 8)
     } else {
       state.stats.fail++
+      d -= stats.profit
+      state.stats.successProfit = NumberUtil.round(d, 8)
     }
     state.stats.count++
-    state.stats.successProfit += stats.profit
   },
   [RESET_STATS_INFO] (state, stats) {
     state.stats.lastResult = false

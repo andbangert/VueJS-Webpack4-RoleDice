@@ -2,12 +2,11 @@
 
 import { HashUtil } from '../utils/hashutil'
 import { BetUtil } from '../utils/betUtil'
-// import { NumberUtil } from '../utils/numberUtils'
 import { RESET_STATS_INFO, FAUCET_BALANCE, CHANGE_BALANCE, SET_ROLLED_PERCENT, SET_HASH_INFO, SET_STATS_INFO } from './mutations'
 
 export const actions = {
   faucetBalance ({ commit, state }) {
-    if (state.diceState.balance === 0) {
+    if (state.balance === 0) {
       commit(FAUCET_BALANCE)
     }
   },
@@ -29,23 +28,21 @@ export const actions = {
       // LO
       if (winChance >= percent) {
         betResult = true
-        profit = BetUtil.getProfitOnWin(betAmount, winChance, true)
+        profit = BetUtil.getProfitOnWin(betAmount, winChance, true, 8)
       } else {
-        profit = BetUtil.getProfitOnWin(betAmount, winChance, false)
-        profit = (profit * (-1))
+        profit = BetUtil.getProfitOnWin(betAmount, winChance, false, 8)
       }
     } else {
       // HI
       let hiPercent = BetUtil.revertPercent(winChance)
       if (hiPercent <= percent) {
         betResult = true
-        profit = BetUtil.getProfitOnWin(betAmount, winChance, false)
+        profit = BetUtil.getProfitOnWin(betAmount, winChance, true, 8)
       } else {
-        profit = BetUtil.getProfitOnWin(betAmount, winChance, true)
-        profit = (profit * (-1))
+        profit = BetUtil.getProfitOnWin(betAmount, winChance, false, 8)
       }
     }
-    commit(CHANGE_BALANCE, profit)
+    commit(CHANGE_BALANCE, { result: betResult, profit: profit })
     commit(SET_STATS_INFO, { success: betResult, profit: profit })
   },
   async createHashInfo ({ commit, state }) {

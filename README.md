@@ -1,4 +1,4 @@
-# y
+# Endpass Dice
 
 > A.Bangert test task for Endpass
 
