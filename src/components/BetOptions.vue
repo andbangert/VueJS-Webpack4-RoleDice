@@ -1,7 +1,15 @@
 <template>
   <div class="card">
     <div class="card-header">
-      Manual Betting
+      <div class="row">
+        <div class="col-md-8"><div>Manual Betting</div></div>
+        <div class="col-md-4">
+          <div class="custom-control custom-checkbox float-right">
+            <label class="custom-control-label" for="diceBot">Dice Bot</label>
+            <input type="checkbox" class="custom-control-input" id="diceBot">
+          </div>
+      </div>
+      </div>
     </div>
     <div class="card-body">
       <div class="row">
@@ -83,7 +91,7 @@ export default {
   props: {
     initialBetAmount: {
       type: Number,
-      default: 0.001
+      default: 1
     },
     initialWinChancePercent: {
       type: Number,
@@ -126,7 +134,7 @@ export default {
     rollClassObject: function () {
       if (this.rollCount === 0) {
         return {
-          'bg-info': true
+          'bg-secondary': true
         }
       } else {
         return { 'bg-success': this.lastResult, 'bg-danger': !this.lastResult }
@@ -172,6 +180,11 @@ export default {
         betAmount: this.betAmount,
         isLow: false,
         winChance: this.winChancePercent
+      }).then(resp => {}, error => {
+        console.log(error)
+        if (error) {
+          console.log(error.message)
+        }
       })
     },
     lowRoll: function () {

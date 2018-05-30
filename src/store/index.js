@@ -36,7 +36,6 @@ if (stateStr) {
 }
 
 export const state = obj
-state.balance = 100
 
 export default new Vuex.Store({
   state,

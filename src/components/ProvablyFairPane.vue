@@ -17,8 +17,8 @@
             <div class="input-group">
               <input type="text" class="form-control" placeholder="" aria-label="" :value="clientSeed" readonly>
               <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="button">Random</button>
-                <button class="btn btn-outline-secondary" type="button">Lock</button>
+                <button class="btn btn-outline-secondary" type="button" disabled>Random</button>
+                <button class="btn btn-outline-secondary" type="button" disabled>Lock</button>
               </div>
             </div>
           </div>

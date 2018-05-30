@@ -18,7 +18,6 @@ class BetUtil {
       per = MaxPercent - per
     }
     let result = (profit * per) / 100
-    console.log('BET UTIL')
     result = NumberUtil.round(result, exp)
     return result
   }

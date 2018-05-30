@@ -3,33 +3,35 @@
     <div class="card-header">
       Stats
     </div>
-    <div class="card-body">
-      <div class="stats-item">
-        <div>
-          <span>Wins:&nbsp;
-            <span class="font-weight-bold text-success">{{success}}</span>
-          </span>
+    <div class="card-body text-center">
+      <div class="stats text-left">
+        <div class="stats-item">
+          <div>
+            <span>Wins:&nbsp;
+              <span class="font-weight-bold text-success">{{success}}</span>
+            </span>
+          </div>
         </div>
-      </div>
-      <div class="stats-item">
-        <div>
-          <span>Losses:&nbsp;
-            <span class="font-weight-bold text-danger">{{fail}}</span>
-          </span>
+        <div class="stats-item">
+          <div>
+            <span>Losses:&nbsp;
+              <span class="font-weight-bold text-danger">{{fail}}</span>
+            </span>
+          </div>
         </div>
-      </div>
-      <div class="stats-item">
-        <div>
-          <span>Bets:&nbsp;
-            <span class="font-weight-bold text-dark">{{count}}</span>
-          </span>
+        <div class="stats-item">
+          <div>
+            <span>Bets:&nbsp;
+              <span class="font-weight-bold text-dark">{{count}}</span>
+            </span>
+          </div>
         </div>
-      </div>
-      <div class="stats-item">
-        <div>
-          <span>Profit:&nbsp;
-            <span class="font-weight-bold text-dark">{{successProfit}}</span>
-          </span>
+        <div class="stats-item">
+          <div>
+            <span>Profit:&nbsp;
+              <span class="font-weight-bold text-dark">{{successProfit}}</span>
+            </span>
+          </div>
         </div>
       </div>
       <a href="#" class="btn btn-dark" @click="resetStats">Reset</a>
