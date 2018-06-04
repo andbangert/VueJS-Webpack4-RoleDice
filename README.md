@@ -2,7 +2,7 @@
 
 > Single vue.js app
 
-> vue-cli was configured for using webpack^4 and vue.js^2.5
+> vue-cli was configured for using webpack^4 and vue.js^2.5 and bootstrap^4
 
 ## Build Setup
 
